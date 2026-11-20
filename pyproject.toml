@@ -1,19 +1,22 @@
+
 [project]
 name = "attendance_sync"
 authors = [
-    { name = "Md Omar Faruk", email = "omfsakib@gmail.com"}
+    { name = "Md Omar Faruk", email = "omfsakib@gmail.com" }
 ]
-description = "A app to integrate attendance device with hmrs."
-requires-python = ">=3.10"
+description = "An app to integrate attendance devices with HRMS."
+requires-python = ">=3.14"
 readme = "README.md"
 dynamic = ["version"]
-dependencies = [
-    # "frappe~=15.0.0" # Installed and managed by bench.
-]
+dependencies = []
 
 [build-system]
 requires = ["flit_core >=3.4,<4"]
 build-backend = "flit_core.buildapi"
+
+# Frappe v16 dependency declaration
+[tool.bench.frappe-dependencies]
+frappe = ">=16.0.0,<17.0.0"
 
 # These dependencies are only installed when developer mode is enabled
 [tool.bench.dev-dependencies]
@@ -21,7 +24,7 @@ build-backend = "flit_core.buildapi"
 
 [tool.ruff]
 line-length = 110
-target-version = "py310"
+target-version = "py314"
 
 [tool.ruff.lint]
 select = [
@@ -33,19 +36,19 @@ select = [
     "B",
 ]
 ignore = [
-    "B017", # assertRaises(Exception) - should be more specific
-    "B018", # useless expression, not assigned to anything
-    "B023", # function doesn't bind loop variable - will have last iteration's value
-    "B904", # raise inside except without from
-    "E101", # indentation contains mixed spaces and tabs
-    "E402", # module level import not at top of file
-    "E501", # line too long
-    "E741", # ambiguous variable name
-    "F401", # "unused" imports
-    "F403", # can't detect undefined names from * import
-    "F405", # can't detect undefined names from * import
-    "F722", # syntax error in forward type annotation
-    "W191", # indentation contains tabs
+    "B017",
+    "B018",
+    "B023",
+    "B904",
+    "E101",
+    "E402",
+    "E501",
+    "E741",
+    "F401",
+    "F403",
+    "F405",
+    "F722",
+    "W191",
 ]
 typing-modules = ["frappe.types.DF"]
 
